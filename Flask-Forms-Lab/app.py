@@ -9,7 +9,7 @@ app = Flask(  # Create a flask app
 
 @app.route('/home')
 def home():
-	return render_template('home.html')
+	return render_template('home.html', facebook_friends = facebook_friends)
                                                      
 username = "nittai"
 password = "1234"
