@@ -7,13 +7,18 @@ app = Flask(  # Create a flask app
 	static_folder='static'  # Name of directory for static files
 )
 
-@app.route('/home')
-def home():
-	return render_template('home.html', facebook_friends = facebook_friends)
-                                                     
 username = "nittai"
 password = "1234"
 facebook_friends=["Loai","Kenda","Avigail", "George", "Fouad", "Gi"]
+
+@app.route('/friend_exists/<string:friend>')
+def friend_exists_route(friend): 
+    return render_template('friend_exists.html', friend = friend)
+
+@app.route('/home')
+def home():
+	return render_template('home.html', facebook_friends = facebook_friends)
+                                          
 
 
 @app.route('/', methods=["GET", "POST"])  # '/' for the default page
@@ -34,62 +39,3 @@ if __name__ == "__main__":  # Makes sure this is the main process
     debug=True
 	)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#1 check gor username and password, and if the user logs in successfully - enter the home page
